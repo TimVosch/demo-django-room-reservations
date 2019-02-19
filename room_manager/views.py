@@ -21,6 +21,9 @@ def reservations(request):
     context = { 'reservations': reservations }
     return render(request, 'room_manager/reservations.html', context)
 
+def delete_reservation(request, reservation_id):
+    models.Reservation.objects.get(pk=reservation_id).delete()
+    return redirect('room_manager.reservations')
 
 def make_reservation(request, room_id):
     if request.method == 'GET':
