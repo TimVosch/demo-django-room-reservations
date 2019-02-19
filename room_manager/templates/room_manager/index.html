@@ -1,0 +1,20 @@
+{% extends "room_manager/layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm-12 col-md">
+        <p>
+            <h3>What is this?</h3>
+            This is the most amazing application ever created in human history. In a record breaking 35 minutes this text was written with intens speed and precision like never before.
+        </p>
+    </div>
+    <div class="col-sm-12 col-md">
+        <p>
+            <h3>Where to start</h3>
+            Go to <strong><a href="{% url 'rooms' %}">Rooms</a></strong> and see what room you want a reservation for. Click on the room and press "Make reservation".
+        </p>
+    </div>
+</div>
+{% endblock %}

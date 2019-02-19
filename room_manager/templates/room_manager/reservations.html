@@ -1,0 +1,41 @@
+{% extends "room_manager/layout.html" %}
+
+{% block title %}Reservations{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm">
+        <p>
+            <h2>Current reservations</h2>
+            Below you will find a list of all reservations
+        </p>
+    </div>
+    <div class="w-100 mt-3"></div>
+    <div class="col-sm">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Room</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Start time</th>
+                    <th scope="col">End time</th>
+                    <th scope="col">Organisor</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reservation in reservations %}
+                    <tr>
+                        <td>{{reservation.room.name}}</td>
+                        <td>{{reservation.startdate.year}}/{{reservation.startdate.month}}/{{reservation.startdate.day}}</td>
+                        <td>{{reservation.startdate.hour}}:{{reservation.startdate.minute}}</td>
+                        <td>{{reservation.enddate.hour}}:{{reservation.enddate.minute}}</td>
+                        <td>{{reservation.organisor.first_name}} {{reservation.organisor.last_name}}</td>
+                        <td><strong><a href="#&removeId={{ reservation.id }}" class="text-danger">&times;</a></strong></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

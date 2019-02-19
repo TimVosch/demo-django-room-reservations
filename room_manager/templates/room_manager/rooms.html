@@ -1,0 +1,33 @@
+{% extends "room_manager/layout.html" %}
+
+{% block title %}Rooms{% endblock %}
+
+{% block content %}
+{% load static %}
+<div class="row">
+    <div class="col-sm">
+        <p>
+            <h2>Existing rooms</h2>
+            Below you will find a list of all created rooms.
+        </p>
+    </div>
+    <hr class="w-100">
+    {% for room in rooms %}
+        <div class="col-sm-12 col-md-4">
+            <div class="card">
+                {% cycle "room_manager/room-0.jpeg" "room_manager/room-1.jpeg" "room_manager/room-2.jpeg" "room_manager/room-3.jpeg" as image_src silent %}
+                <div style="height: 141px; width:auto; overflow: hidden;">
+                    <img src={% static image_src %} alt="Image" class="card-img-top">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{room.name}}</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eros erat, facilisis at eros in, fringilla scelerisque
+                    ex. Donec commodo, erat sit amet eleifend maximus, risus augue suscipit orci, vitae fermentum leo nibh rutrum enim.
+                    Maecenas eget eros sit amet urna dapibus congue. Proin egestas dolor eu sem auctor, vitae euismod leo faucibus.</p>
+                    <a href="{% url 'make_reservation' room_id=room.id %}" class="btn btn-success float-right">Make reservation</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

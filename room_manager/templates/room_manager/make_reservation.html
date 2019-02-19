@@ -1,0 +1,54 @@
+{% extends "room_manager/layout.html" %}
+{% load static %}
+
+{% block title %}Make reservation{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-sm">
+        <p>
+            <h1>Making a reservation</h1>
+            You have chosen to make a reservation for room <strong>{{room.name}}</strong>. Please fill out the form below.
+        </p>
+    </div>
+    <hr class="w-100">
+    <div class="col-sm">
+        <form action="#" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Room: </label>
+                <input type="text" class="form-control disabled" value="{{room.name}}" disabled>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-sm-12 col-md">
+                    <label for="form-input-startdate">Starts at: </label>
+                    <input type="datetime" name="startdate" id="form-input-startdate" class="form-control">
+                </div>
+                <div class="form-group col-sm-12 col-md">
+                    <label for="form-input-enddate">Ends at: </label>
+                    <input type="datetime" name="enddate" id="form-input-enddate" class="form-control">
+                </div>
+            </div>
+            <input type="hidden" name="organisor" value="{{organisor.id}}">
+            <input type="hidden" name="room" value="{{room.id}}">
+            <input type="submit" class="btn btn-success" value="Reserve {{room.name}}">
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'room_manager/jquery.datetimepicker.min.css' %}">
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'room_manager/jquery.datetimepicker.full.min.js' %}"></script>
+<script type="text/javascript">
+    jQuery.datetimepicker.setLocale('en');
+    properties = {
+        format: 'Y-m-d H:i'
+    }
+    jQuery('#form-input-startdate').datetimepicker(properties);
+    jQuery('#form-input-enddate').datetimepicker(properties);
+</script>
+{% endblock %}
