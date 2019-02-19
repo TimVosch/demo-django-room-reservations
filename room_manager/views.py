@@ -27,7 +27,7 @@ def make_reservation(request, room_id):
         return render_reservation_form(request, room_id)
     elif request.method == 'POST':
         create_reservation(request)
-        return redirect('reservations')
+        return redirect('room_manager.reservations')
 
 def create_reservation(request):
     reservation = models.Reservation()
