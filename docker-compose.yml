@@ -1,0 +1,12 @@
+version: '3.2'
+
+services:
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - type: bind
+        source: ./prometheus_config
+        target: /etc/prometheus
+      
