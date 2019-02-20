@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d1612ba2ebdf4a2161f631786d6f1968970b15888576a0fc70fb9eb490d399be"
+            "sha256": "7b67586259c3f1eb33838c25795c1b7b8b49e32e39f1249e5ee8bb30287afbb9"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -39,6 +39,14 @@
             "index": "pypi",
             "version": "==0.3.1"
         },
+        "django-prometheus": {
+            "hashes": [
+                "sha256:571d89a13e2547e1c3d19901f155bde8e101323fbcb0439363d670bc61c8c541",
+                "sha256:e8da2eb91cb20cfe0b8130305d34f3503766b7a08a244ce1031c36136beeb7a5"
+            ],
+            "index": "pypi",
+            "version": "==1.0.15"
+        },
         "gunicorn": {
             "hashes": [
                 "sha256:aa8e0b40b4157b36a5df5e599f45c9c76d6af43845ba3b3b0efe2c70473c2471",
@@ -46,6 +54,13 @@
             ],
             "index": "pypi",
             "version": "==19.9.0"
+        },
+        "prometheus-client": {
+            "hashes": [
+                "sha256:098d30575296674b1417ae893d4bba0ad8377c6307efdd5d49885a227589c676",
+                "sha256:1b38b958750f66f208bcd9ab92a633c0c994d8859c831f7abc1f46724fcee490"
+            ],
+            "version": "==0.6.0"
         },
         "psycopg2": {
             "hashes": [
